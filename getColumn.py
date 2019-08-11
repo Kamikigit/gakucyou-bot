@@ -1,21 +1,25 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
+import getLink
+import os
 
-
-def scraping():
-    url = "https://www.teu.ac.jp/gakucyou/2019.html?id=144"
-   
-    html = urlopen(url)
+def scraping(url):
+    html = urlopen("https://www.teu.ac.jp" + url)
 
     soup = BeautifulSoup(html.read(), "html.parser")
 
-    column_tag = soup.select_one(".mainbox.columntxt")
+    column_tag = soup.find("div", {"class":"infoDetailBox01"}) or soup.find("div", {"class": "mainbox columntxt"})
     column = column_tag.get_text("", strip=True)
-
     print(column)
 
-for link in 
+    file = open("column.txt", "a")
+    file.write(column)
+    file.close()
 
 if __name__ == "__main__":
-    scraping()
+    os.remove("column.txt")
+    for page in getLink.pages:
+        scraping(page)
+
+
