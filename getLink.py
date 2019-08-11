@@ -18,9 +18,9 @@ def getLinks(pageUrl):
                 getLinks(newPage)
                
 def serchLinks():
-    year = [i for i in range(2011, datetime.now().year)]
-    for i in range(9):
-        url = "/gakucyou/" + str(year[i]) + "/index.html"
+    years = [year for year in range(2011, datetime.now().year)]
+    for year in years:
+        url = "/gakucyou/" + str(year) + "/index.html"
         getLinks(url)
 serchLinks()
 
