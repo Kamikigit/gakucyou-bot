@@ -13,9 +13,8 @@ def scraping(url):
     column = column_tag.get_text("", strip=True)
     print(column)
 
-    file = open("column.txt", "a")
-    file.write(column)
-    file.close()
+    with open("column.txt", "a") as f:
+        f.write(column)
 
 if __name__ == "__main__":
     os.remove("column.txt")
