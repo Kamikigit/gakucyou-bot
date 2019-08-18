@@ -1,19 +1,20 @@
 import random
 import tweepy
-import api
+import keys
 import datetime
 import schedule
 import time
 
-auth = tweepy.OAuthHandler(api.CONSUMER_KEY, api.CONSUMER_SECRET)
-auth.set_access_token(api.ACCESS_TOKEN, api.ACCESS_SECRET)
+auth = tweepy.OAuthHandler(keys.CONSUMER_KEY, keys.CONSUMER_SECRET)
+auth.set_access_token(keys.ACCESS_TOKEN, keys.ACCESS_SECRET)
 
 api = tweepy.API(auth)
 
 def tweet():
-    column = open("column.txt", "r")
-    texts = column.read().split("。")
+    with open("column.txt", "r") as f:
+        texts = f.read().split("。")    
     tweet = random.choice(texts)
+    print(tweet)
     api.update_status(tweet)
 
 schedule.every().hour.do(tweet)
@@ -21,3 +22,4 @@ schedule.every().hour.do(tweet)
 while True:
     schedule.run_pending()
     time.sleep(60)
+
