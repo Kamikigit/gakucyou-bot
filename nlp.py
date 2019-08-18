@@ -1,6 +1,7 @@
 import sys
 import MeCab
 import re
+import os
 from collections import Counter
 
 with open("column.txt") as f:
@@ -14,10 +15,11 @@ words = [item[0]
          for item in items 
          if item[0] not in ('ESO', '')]
 
+os.remove("mustache.txt")
 counter = Counter(words)
 for word, cnt in counter.most_common():
     with open("mustache.txt", "a") as f:
-        f.write(f"{word}:{cnt}")
+        f.write(f"{word}:{cnt}\n")
 
 
  
