@@ -1,12 +1,11 @@
 import random
 import tweepy
-import keys
 import datetime
 import schedule
 import time
 
-auth = tweepy.OAuthHandler(keys.CONSUMER_KEY, keys.CONSUMER_SECRET)
-auth.set_access_token(keys.ACCESS_TOKEN, keys.ACCESS_SECRET)
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN,_KEY, ACCESS_TOKEN_SECRET)
 
 api = tweepy.API(auth)
 
