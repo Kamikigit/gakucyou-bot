@@ -3,9 +3,10 @@ import tweepy
 import datetime
 import schedule
 import time
+import os
 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_TOKEN,_KEY, ACCESS_TOKEN_SECRET)
+auth = tweepy.OAuthHandler(os.environ["CONSUMER_KEY"], os.environ["CONSUMER_SECRET"])
+auth.set_access_token(os.environ["ACCESS_TOKEN_KEY"], os.environ["ACCESS_TOKEN_SECRET"])
 
 api = tweepy.API(auth)
 
@@ -17,6 +18,7 @@ def tweet():
     api.update_status(tweet)
 
 schedule.every().hour.do(tweet)
+
 
 while True:
     schedule.run_pending()
