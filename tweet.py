@@ -17,7 +17,11 @@ def tweet():
     print(tweet)
     api.update_status(tweet)
 
-schedule.every().hour.do(tweet)
+schedule.every().day.at("9:00").do(tweet)
+schedule.every().day.at("10:00").do(tweet)
+schedule.every().day.at("13:00").do(tweet)
+schedule.every().day.at("15:00").do(tweet)
+schedule.every().day.at("17:00").do(tweet)
 
 
 while True:
