@@ -9,5 +9,7 @@ at twitter [@gakucyou_bot](https://twitter.com/gakucyou_bot)
 
 ## 作り方
 HPからスクレイピング
+
 twitterのDeveloper APIを取得
+
 herokuでデプロイ
