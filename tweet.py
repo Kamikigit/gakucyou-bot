@@ -17,20 +17,24 @@ def tweet():
     print(tweet)
     api.update_status(tweet)
 
-# schedule.every().day.at("9:00").do(tweet)
-tweet()
 
-follower_list = api.followers(count=50)
-for follower in follower_list:
-    des = follower.description
-    if "ネットビジネス" | "副業" in des:
-        pass
-    else:
-        follower_id = follower.id
-        api.create_friendship(follower.id)
+def follow():
+    follower_list = api.followers()
+    for follower in follower_list:
+        des = follower.description
+        if "ネットビジネス" | "副業" in des:
+            pass
+        else:
+            follower_id = follower.id
+            api.create_friendship(follower.id)
 
+if __name__ == "__main__":
+    # schedule.every().day.at("9:00").do(tweet)
+    tweet()
+    follow()
+    
 
-while True:
-    schedule.run_pending()
-    time.sleep(60)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(60)
 
