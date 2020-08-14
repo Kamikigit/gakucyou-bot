@@ -17,7 +17,7 @@ def scraping(url):
         f.write(column)
 
 if __name__ == "__main__":
-    os.remove("column.txt")
+    # os.remove("column.txt")
     for page in getLink.pages:
         scraping(page)
 

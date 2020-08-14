@@ -8,8 +8,6 @@ at twitter [@gakucyou_bot](https://twitter.com/gakucyou_bot)
 - 2020年8月　大山学長による「大山学長のホッとブレイク」の連載が始まる。このアカウントも大山学長へ移行。
 
 ## 作り方
-HPからスクレイピング
-
-twitterのDeveloper APIを取得
-
-herokuでデプロイ
+- HPからスクレイピング
+- twitterのDeveloper APIを取得
+- herokuでデプロイ
