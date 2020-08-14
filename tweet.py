@@ -17,11 +17,17 @@ def tweet():
     print(tweet)
     api.update_status(tweet)
 
-schedule.every().day.at("9:00").do(tweet)
-schedule.every().day.at("10:00").do(tweet)
-schedule.every().day.at("13:00").do(tweet)
-schedule.every().day.at("15:00").do(tweet)
-schedule.every().day.at("17:00").do(tweet)
+# schedule.every().day.at("9:00").do(tweet)
+tweet()
+
+follower_list = api.followers(count=50)
+for follower in follower_list:
+    des = follower.description
+    if "ネットビジネス" | "副業" in des:
+        pass
+    else:
+        follower_id = follower.id
+        api.create_friendship(follower.id)
 
 
 while True:
